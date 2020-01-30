@@ -1,0 +1,263 @@
+body {
+  padding-top: 54px;
+  background-color: #34203B!important;
+  color: #291330!important;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.display-3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.bg-dark {
+  background-color: #28132f!important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #28a745!important;
+  border-color: #28a745!important;
+  border-top-color: #28a745!important;
+  border-right-color: #28a745!important;
+  border-bottom-color: #28a745!important;
+  border-left-color: #28a745!important;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: 0 0 0 2px #f9f9f9!important;
+}
+
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #f9f9f9!important;
+}
+
+.btn-primary.active, .btn-primary:active, .show > .btn-primary.dropdown-toggle {
+  background-color: #48b153!important;
+  border-color: #48b153!important;
+}
+
+.btn-primary:hover {
+  color: #f9f9f9!important;
+  background-color: #48b153!important;
+  border-color: #48b153!important;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #f9f9f9!important;
+}
+
+.card {
+  border: 2px solid #f9f9f9!important;
+  height: 100%;
+}
+
+.card-body {
+  background-color: #f9f9f9!important;
+  background: url("../../assets/img/bg.png") repeat center center;
+}
+
+.card-footer {
+  background-color: #291330!important;
+}
+
+.jumbotron {
+  background-color: #f9f9f9!important;
+  background: url("../../assets/img/bg.png") repeat center center;
+}
+
+#SaleStatus {
+  background-color: #dc3545;
+  color: #fff6bb;
+}
+
+#SaleStatus.forsale {
+  background-color: #28a745;
+}
+
+#DappContainer {
+  margin-top: 8px;
+}
+
+#IsForSale {
+  margin-top: 8px;
+}
+
+.tabletext {
+  color: #fff6bb;
+}
+
+@media (max-width: 768px) {
+  .tabletext {
+    margin-top: 5px;
+  }
+}
+
+.col-12.table, .col-8.table, .col-6.table, .col-2.table, .col-4.table {
+  background: #4D3855;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .col-12.table, .col-8.table, .col-6.table, .col-2.table, .col-4.table {
+    background: #4D3855;
+    height: 24px;
+    font-size: 55%;
+  }
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 0.75s infinite linear;
+  animation: fa-spin 0.75s infinite linear;
+}
+
+a {
+  color: #fff6bb;
+}
+
+a:hover {
+  color: #291330;
+}
+
+@media (max-width: 768px) {
+  #Cancel {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fa.fa-spinner.fa-spin.spinnermobile {
+    margin-right: -5px!important;
+  }
+}
+
+#CheckIfSub, #CheckNextBill, #AddressInputField, #TotalInputField, #checkBalanceOfAddressInput, #scaledDividendCreditedToAddressInput, .inputbox {
+  border-width: 2px;
+  border-style: solid;
+  background-color: #291330;
+  border-color: #fdf6bb;
+  color: #ffffff;
+  text-shadow: 0px 0px 0px rgba(42,42,42,.75);
+  text-align: center;
+}
+
+@media (min-width: 200px) {
+  #CheckIfSub, #CheckNextBill, #AddressInputField, #TotalInputField, #checkBalanceOfAddressInput, #TokensOwned, #scaledDividendCreditedToAddressInput, .inputbox {
+    width: 200px!important;
+  }
+}
+
+@media (max-width: 575px) {
+  #videotutorialbtn {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  #CheckIfSub, #CheckNextBill, #AddressInputField, #TotalInputField, #checkBalanceOfAddressInput, #TokensOwned, #scaledDividendCreditedToAddressInput, #DividendsPaid, .inputbox {
+    width: 200px!important;
+  }
+}
+
+@media (min-width: 768px) {
+  #CheckIfSub, #CheckNextBill, #AddressInputField, #TotalInputField, #checkBalanceOfAddressInput, #TokensOwned, #scaledDividendCreditedToAddressInput, #DividendsPaid, .inputbox {
+    width: 341px!important;
+  }
+}
+
+@media (min-width: 992px) {
+  #CheckIfSub, #CheckNextBill, #AddressInputField, #TotalInputField, #checkBalanceOfAddressInput, #TokensOwned, #scaledDividendCreditedToAddressInput, #DividendsPaid, .inputbox {
+    width: 503px!important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #CheckIfSub, #CheckNextBill, #AddressInputField, #TotalInputField, #checkBalanceOfAddressInput, #TokensOwned, #scaledDividendCreditedToAddressInput, #DividendsPaid, .inputbox {
+    width: 621px!important;
+  }
+}
+
+@media (max-width: 400px) {
+  #ContractAddress, #ArtworkOwner, #ContractOwner, #TokenContract, #TheArtist {
+    font-size: 7px!important;
+  }
+}
+
+#AskingPrice, #TokensOwned, #DividendsPaid {
+  border-width: 2px;
+  border-style: dotted;
+  background-color: #291330;
+  border-color: #fdf6bb;
+  color: #ffffff;
+  text-shadow: 0px 0px 0px rgba(42,42,42,.75);
+  text-align: center!important;
+}
+
+@media (max-width: 768px) {
+  #AskingPrice {
+    padding-top: 11px!important;
+  }
+}
+
+#CheckBalanceButton, #SendTokensButton, #CheckDividendsPaidButton, .greenbtn {
+  margin-top: -3px!important;
+}
+
+@media x {
+  #SellButton {
+    margin-top: 0px!important;
+  }
+}
+
+#ImgRow {
+  text-align: center;
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: .20;
+}
+
+#disqus_thread {
+  padding: 4px 30px 4px 30px!important;
+}
+
+#ButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 8px 16px 8px;
+}
+
+.card-title {
+  color: #28132f;
+  font-size: 18px!important;
+}
+
+.card-text:last-child {
+  color: #28132f;
+}
+
+.rounded.img-fluid {
+  max-height: 600px;
+}
+
+.card-text {
+  color: #28132f;
+  font-size: 12px;
+  margin: 0px!important;
+}
+
+.redtext {
+  color: #dc3545!important;
+}
+
+.greentext {
+  color: #0bc10b!important;
+}
+

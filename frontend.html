@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Recurring Billing Contract Frontend</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Drag--Drop-Upload-Form.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container"><a class="navbar-brand" href="./">Recurring Billing Contract Frontend</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" href="./">Home<span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container" id="DappContainer" style="margin-bottom: 8px;">
+        <div class="row" id="WarningRow" style="height: 24px;margin-bottom: 1px;margin-top: 1px;">
+            <div class="col-12 offset-md-0 table title" style="background:#3F172A;">
+                <p class="text-nowrap text-center float-right tabletext" id="Web3Warning" style="width:100%;min-width:100%;"></p>
+            </div>
+        </div>
+        <div class="row" style="height: 24px;margin-bottom: 1px;margin-top: 1px;">
+            <div class="col-12 offset-md-0 table title" style="background:#3F172A;">
+                <p class="text-nowrap text-center float-right tabletext" style="width:100%;min-width:100%;">Standard Subscription Package (Recurring Monthly)</p>
+            </div>
+        </div>
+        <div class="row" style="height: 28px;margin-bottom: 1px;margin-top: 0px;background-color: #4d3855;color: rgb(77,56,85);">
+            <div class="col-12 offset-md-0 table title" style="background: #3F172A;background-color: rgb(77,56,85);height: 29px;">
+                <p class="text-nowrap text-center float-right d-sm-flex justify-content-sm-center tabletext" style="width: 100%;min-width: 100%;font-size: 28px;margin: 0;margin-top: -4px;color: rgb(255,246,187)!important;height: 28px;">2.00 DAI</p>
+            </div>
+        </div>
+        <div class="row d-xl-flex" style="height: 60px;margin-bottom: 1px;margin-top: 1px;background-color: #4d3855;">
+            <div class="col-8 offset-md-0 d-flex justify-content-xl-center table" style="margin:auto;max-width: 100%;height: 60px;min-width: 100%;">
+                <p class="text-center d-flex d-xl-flex my-auto my-sm-auto my-md-auto my-lg-auto my-xl-auto tabletext" style="width: 100%;min-width: 0px;height: 60px;"> <button class="btn btn-primary d-flex justify-content-center" id="SubscribeButton" style="max-width: 100%;width: 200px;height: 50px;margin: auto;" type="button">Subscribe</button></p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-12 offset-md-0 table title" style="background:#3F172A;">
+                <p class="text-nowrap text-center float-right tabletext" style="width:100%;min-width:100%;">Contract Details</p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-4 offset-md-0 table" style="background:#291330;">
+                <p class="text-nowrap text-right float-right tabletext" style="width:100%;min-width:100%;">Contract:</p>
+            </div>
+            <div class="col-8 offset-md-0 table" style="margin-left:0px;max-width:100%;">
+                <p class="text-center tabletext" id="SubscriptionContract" style="width:100%;min-width:0px;"> <i class="fa fa-spinner fa-spin"></i></p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-4 offset-md-0 table" style="background:#291330;">
+                <p class="text-nowrap text-right float-right tabletext" style="width:100%;min-width:100%;">Current Subscribers:</p>
+            </div>
+            <div class="col-8 offset-md-0 table" style="margin-left:0px;max-width:100%;">
+                <p class="text-center tabletext" id="TotalSubs" style="width:100%;min-width:0px;"> <i class="fa fa-spinner fa-spin"></i></p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-4 offset-md-0 table" style="background:#291330;">
+                <p class="text-nowrap text-right float-right tabletext" style="width:100%;min-width:100%;">Beneficiary:</p>
+            </div>
+            <div class="col-8 offset-md-0 table" style="margin-left:0px;max-width:100%;">
+                <p class="text-center tabletext" id="Beneficiary" style="width:100%;min-width:100%;"> <i class="fa fa-spinner fa-spin"></i></p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-4 offset-md-0 table" style="background:#291330;">
+                <p class="text-nowrap text-right float-right tabletext" style="width:100%;min-width:100%;">Contract Manager:</p>
+            </div>
+            <div class="col-8 offset-md-0 table" style="margin-left:0px;max-width:100%;">
+                <p class="text-center tabletext" id="ContractManager" style="width:100%;min-width:0px;"> <i class="fa fa-spinner fa-spin"></i></p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-4 offset-md-0 table" style="background:#291330;">
+                <p class="text-nowrap text-right float-right tabletext" style="width:100%;min-width:100%;">DAI Contract:</p>
+            </div>
+            <div class="col-8 offset-md-0 table" style="margin-left:0px;max-width:100%;">
+                <p class="text-center tabletext" id="DAIContract" style="width:100%;min-width:0px;"> <i class="fa fa-spinner fa-spin"></i></p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-12 offset-md-0 table title" style="background:#3F172A;">
+                <p class="text-nowrap text-center float-right tabletext" style="width:100%;min-width:100%;">Check If Address Is a Subscriber</p>
+            </div>
+        </div>
+        <div class="row" style="height:48px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-8 offset-md-0 d-flex justify-content-center table" style="margin-left: 0px;height: 48px;width: 240px;min-width: 100%;"><input type="text" id="CheckIfSub" style="margin-top:5px;padding:0;padding-top:0;padding-bottom:0;margin-bottom:0px;width:110px;height:38px;" placeholder="Address"><button class="btn btn-secondary" id="CheckIfSubButton" style="margin-right: 0px;margin-left: 24px;margin-top: 5px;max-width: 100%;width: 100px;padding-right: 8px;height: 38px;"
+                    type="button">Check</button></div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-8 offset-md-0 d-flex table" style="margin-left: 0px;max-width: 100%;min-width: 100%;">
+                <p class="text-center tabletext" id="SubscriberInfo" style="width:100%;min-width:0px;"> </p>
+            </div>
+        </div>
+        <div class="row" style="height:24px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-12 offset-md-0 table title" style="background:#3F172A;">
+                <p class="text-nowrap text-center float-right tabletext" style="width:100%;min-width:100%;">Cancel Your Subscription (Ends Immediately)</p>
+            </div>
+        </div>
+        <div class="row" style="height:48px;margin-bottom:1px;margin-top:1px;">
+            <div class="col-8 offset-md-0 d-flex justify-content-center table" style="margin-left: 0px;max-width: 100%;height: 48px;min-width: 100%;">
+                <p class="text-center tabletext" id="Cancel" style="width:100%;min-width:0px;"> <button class="btn btn-danger" id="CancelButton" style="margin-top:5px;" type="button">Cancel Subscription</button></p>
+            </div>
+        </div>
+    </div><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
+<script>
+$("#WarningRow").hide()
+var web3Type
+if (typeof web3 !== "undefined") {
+    web3 = new Web3(web3.currentProvider)
+    web3Type = 'Wallet'
+} else {
+    $("#WarningRow").show()
+    $("#Web3Warning").html("*** Ethereum wallet not detected! Refresh when loaded to enable transactions. ***").addClass("redtext")
+    $("#SubscribeButton").attr("disabled","disabled")
+    $("#CancelButton").attr("disabled","disabled")
+    web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/{yourinfurakey}"))
+    web3Type = 'Backup'
+}
+//*** Get Current User Account ***\\
+var defaultAccount
+//Get account initially.
+web3.eth.getAccounts((error, result) => {                   
+     defaultAccount = result
+})
+//Listen for account change and change defaultAccount to the current account.
+if (web3Type != 'Backup'){
+    window.ethereum.on('accountsChanged', function (accounts) {
+      web3.eth.getAccounts((error, result) => {                   
+         defaultAccount = result
+        })
+    })
+}
+//*** Contracts ***\\
+const tokenContractABI = [
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "stop",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "owner_",
+				"type": "address"
+			}
+		],
+		"name": "setOwner",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"name": "dst",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "mint",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "burn",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "name_",
+				"type": "bytes32"
+			}
+		],
+		"name": "setName",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "src",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "stopped",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "authority_",
+				"type": "address"
+			}
+		],
+		"name": "setAuthority",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "burn",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "mint",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "dst",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "dst",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "push",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"name": "dst",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "move",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "start",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "authority",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "pull",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "symbol_",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "Mint",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "Burn",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "authority",
+				"type": "address"
+			}
+		],
+		"name": "LogSetAuthority",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "LogSetOwner",
+		"type": "event"
+	},
+	{
+		"anonymous": true,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "sig",
+				"type": "bytes4"
+			},
+			{
+				"indexed": true,
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "foo",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"name": "bar",
+				"type": "bytes32"
+			},
+			{
+				"indexed": false,
+				"name": "wad",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "fax",
+				"type": "bytes"
+			}
+		],
+		"name": "LogNote",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "dst",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "wad",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	}
+]
+
+//The DAI token. You will have to deploy on the testnet yourself.
+const tokenContractAddress = '0x234203498290348...'
+var tokenContract = new web3.eth.Contract(tokenContractABI, tokenContractAddress)
+
+const subscriptionContractABI = [
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_subscriberAddress",
+				"type": "address"
+			}
+		],
+		"name": "cancelSubscription",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_subscriberAddress",
+				"type": "address"
+			}
+		],
+		"name": "chargeSubscriber",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_subscriberAddress",
+				"type": "address"
+			}
+		],
+		"name": "initiateSubscription",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_newContractManager",
+				"type": "address"
+			}
+		],
+		"name": "updateContractManager",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_contractManager",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "SubscriberAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "SubscriptionAmount",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "BillingInterval",
+				"type": "string"
+			}
+		],
+		"name": "subscriptionEvent",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "aMonthInSeconds",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "billingInterval",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "contractManager",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "contractOwner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "DAIcontract",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getSubscriberCount",
+		"outputs": [
+			{
+				"name": "subscriberCount",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_subscriberAddress",
+				"type": "address"
+			}
+		],
+		"name": "isSubscriber",
+		"outputs": [
+			{
+				"name": "isASubscriber",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "merchant",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "subscriberList",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "subscriptionPrice",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "subscriptionRegistry",
+		"outputs": [
+			{
+				"name": "timeOfFirstCharge",
+				"type": "uint256"
+			},
+			{
+				"name": "timesCharged",
+				"type": "uint256"
+			},
+			{
+				"name": "nonce",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+const subscriptionContractAddress = '0x34524534534345...'
+var subscriptionContract = new web3.eth.Contract(subscriptionContractABI, subscriptionContractAddress)
+
+const etherscan = "https://ropsten.etherscan.io/address/";
+
+$("#SubscriptionContract").html("<a  target='_blank' href='" + etherscan + subscriptionContractAddress + "'>" + subscriptionContractAddress + "</a>")
+    
+subscriptionContract.methods.getSubscriberCount().call().then((result) => {
+    $("#TotalSubs").html(result)
+})
+    
+subscriptionContract.methods.contractManager().call().then((result) => {
+    $("#ContractManager").html("<a  target='_blank' href='" + etherscan + result + "'>" + result + "</a>")
+})
+    
+subscriptionContract.methods.contractManager().call().then((result) => {
+    $("#Beneficiary").html("<a  target='_blank' href='" + etherscan + result + "'>" + result + "</a>")
+})
+
+subscriptionContract.methods.DAIcontract().call().then((result) => {
+    $("#DAIContract").html("<a  target='_blank' href='" + etherscan + result + "'>" + result + "</a>")
+})
+
+$("#SubscribeButton").click(function() {
+    tokenContract.methods.approve(subscriptionContractAddress).send({
+            from: defaultAccount[0]
+        }).then(function(receipt){console.log(receipt)})
+})
+
+var checkIfSubAddress
+$("#CheckIfSub").bind("change keyup input", function() {
+    checkIfSubAddress = $(this).val()
+});
+
+$("#CheckIfSubButton").click(function() {
+    subscriptionContract.methods.isSubscriber(checkIfSubAddress).call().then((result) => {
+        if (result == true){
+            subscriptionContract.methods.subscriptionRegistry(checkIfSubAddress).call().then((result) => {
+            //result[2] is result.timesCharged because of some bug in web3 returning the charge time.
+            $("#SubscriberInfo").removeClass("redtext")
+            $("#SubscriberInfo").addClass("greentext")
+                console.log(result)
+            let pluralTime = result[2]
+            dateOfFirstCharge = new Date(result.timeOfFirstCharge * 1000).toUTCString()
+            if (pluralTime == 1){pluralTime = 'time.'} else pluralTime = 'times.'
+            let lastFourOfAddress = checkIfSubAddress.substr(checkIfSubAddress.length - 4)
+            let firstFourOfAddress = checkIfSubAddress.slice(0, 4)
+            $("#SubscriberInfo").html(firstFourOfAddress + "..." + lastFourOfAddress + " subscribed " + dateOfFirstCharge + ", and has been billed " + result[2] + " " + pluralTime)
+            })
+        }
+        if (result == false){
+            $("#SubscriberInfo").removeClass("greentext")
+            $("#SubscriberInfo").addClass("redtext")
+            let lastFourOfAddress = checkIfSubAddress.substr(checkIfSubAddress.length - 4)
+            let firstFourOfAddress = checkIfSubAddress.slice(0, 4)
+            $("#SubscriberInfo").html(firstFourOfAddress + "..." + lastFourOfAddress + " is not currently a subscriber.")
+        }
+    })
+})
+
+$("#CancelButton").click(function() {
+    subscriptionContract.methods.cancelSubscription(defaultAccount[0]).send({
+        from: defaultAccount[0]
+    }).then(function(receipt){console.log(receipt)})
+})
+
+</script>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Recurring Billing Contract Frontend – 2019</p>
+      </div>
+      <!-- /.container -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/browser-solc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+</body>
+
+</html>
